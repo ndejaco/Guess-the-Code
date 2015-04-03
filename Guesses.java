@@ -20,7 +20,8 @@ public class Guesses {
 			}
 		}
 
-		Scanner scan = new Scanner(System.in);
+		
+                Scanner scan = new Scanner(System.in);
 		String guessString = scan.next();
 		String guess1 = guessString.substring(0, guessString.indexOf('-'));
 		String guess2 = guessString.substring(guessString.indexOf('-') + 1);
@@ -33,7 +34,7 @@ public class Guesses {
 
 			}
 
-			if (!positionMatch(choices.get(i),
+		        if (!positionMatch(choices.get(i),
 					Integer.parseInt(guess2.substring(3, 4)), guess2)) {
 				choices.set(i, "");
 				continue;
@@ -42,9 +43,9 @@ public class Guesses {
 			if (Integer.parseInt(guess1.substring(4, 5)) >= 1) {
 
 				if (!ColorMatch(choices.get(i),
-						Integer.parseInt(guess1.substring(4, 5)), guess1)) {
-					choices.set(i, "");
-					continue;
+						Integer.parseInt(guess1.substring(4,5)), guess1)) {
+                                       choices.set(i, "");
+				       continue;
 				}
 
 			}
@@ -53,13 +54,14 @@ public class Guesses {
 
 				if (!ColorMatch(choices.get(i),
 						Integer.parseInt(guess2.substring(4, 5)), guess2)) {
-					choices.set(i, "");
-                    continue;
+                                        choices.set(i, "");
+                                       continue;
 				}
 			}
 
 		}
 
+                System.out.println(choices);
 		choices.removeAll(Collections.singleton(""));
 
 		if (choices.size() == 0) {
@@ -100,7 +102,7 @@ public class Guesses {
 				|| str.charAt(2) == guess.charAt(0))
 			matches++;
 
-		if (matches == count)
+		if (matches >= count)
 			return true;
 		else
 			return false;
